@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "9918f73f-3005-4b97-af27-c27e8cc02bfc",
-		"name": "IFX APIs",
+		"name": "IFX APIs test",
 		"description": "IFX APIs provide a way for developers to manage integrations programatically. You will need Personal Access Tokens (PAT) from the <b>Developer Center</b> tile. The PAT can be obtained following the next steps:<ol><li>Login to Okta</li><li>Go to Arc Administration</li><li>Go to Developer Center</li><li>Create Admin Token. This token can then be passed as the bearer token to the developer APIs for access.</li></ol>",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_uid": "27125522-9918f73f-3005-4b97-af27-c27e8cc02bfc"
