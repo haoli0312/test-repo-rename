@@ -1,0 +1,1970 @@
+{
+	"info": {
+		"_postman_id": "9918f73f-3005-4b97-af27-c27e8cc02bfc",
+		"name": "IFX APIs",
+		"description": "IFX APIs provide a way for developers to manage integrations programatically. You will need Personal Access Tokens (PAT) from the <b>Developer Center</b> tile. The PAT can be obtained following the next steps:<ol><li>Login to Okta</li><li>Go to Arc Administration</li><li>Go to Developer Center</li><li>Create Admin Token. This token can then be passed as the bearer token to the developer APIs for access.</li></ol>",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "27125522-9918f73f-3005-4b97-af27-c27e8cc02bfc"
+	},
+	"item": [
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "events/subscriptions",
+					"item": [
+						{
+							"name": "Create a new event subscription",
+							"id": "4accfd18-f1c3-45a7-8b85-be20a870fecf",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"eventName\": \"story:unpublish\",\n  \"integrationName\": \"your-integration\",\n  \"enabled\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/events/subscriptions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"events",
+										"subscriptions"
+									]
+								},
+								"description": "Create a new event subscription."
+							},
+							"response": [
+								{
+									"id": "f5963219-c83e-4523-ad11-a5a8fc73ad4d",
+									"name": "The integration is already subscribed to this event.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"eventName\": \"story:unpublish\",\n  \"integrationName\": \"your-integration\",\n  \"enabled\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/events/subscriptions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"events",
+												"subscriptions"
+											]
+										},
+										"description": "Create a new event subscription."
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"{integrationName} is already subscribed to the event {eventName}.\"\n}"
+								},
+								{
+									"id": "7c843373-7a42-4354-9c2d-a071fa931819",
+									"name": "Successfully subscribed to an event.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"eventName\": \"story:unpublish\",\n  \"integrationName\": \"your-integration\",\n  \"enabled\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/events/subscriptions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"events",
+												"subscriptions"
+											]
+										},
+										"description": "Create a new event subscription."
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"eventName\": \"Test name\",\n  \"integrationName\": \"Test integration name\",\n  \"enabled\": true\n}"
+								},
+								{
+									"id": "43429f9d-13d7-4051-a305-2c6c9a186753",
+									"name": "Invalid input. Subscription was not successfully added (error message will be provided).",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"eventName\": \"story:unpublish\",\n  \"integrationName\": \"your-integration\",\n  \"enabled\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/events/subscriptions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"events",
+												"subscriptions"
+											]
+										},
+										"description": "Create a new event subscription."
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorCode\": \"abc\",\n  \"errorMessage\": \"An error\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Manage an existing event subscription",
+							"id": "05651616-974b-4b88-b9f4-61d1f0c61286",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"eventName\": \"story:first-publish\",\n  \"integrationName\": \"your-integration\",\n  \"enabled\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/events/subscriptions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"events",
+										"subscriptions"
+									]
+								},
+								"description": "Manage an existing event subscription"
+							},
+							"response": [
+								{
+									"id": "e83ed6a6-cb8b-436e-bcdf-50d872c29efd",
+									"name": "Event subscription successfully updated.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"eventName\": \"story:first-publish\",\n  \"integrationName\": \"your-integration\",\n  \"enabled\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/events/subscriptions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"events",
+												"subscriptions"
+											]
+										},
+										"description": "Manage an existing event subscription"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"eventName\": \"Test name\",\n  \"integrationName\": \"Test integration name\",\n  \"enabled\": true\n}"
+								},
+								{
+									"id": "13c1eaf2-398b-4c2b-8c29-c243ccf062c7",
+									"name": "Invalid input. Subscription was not successfully updated (error message will be provided).",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"eventName\": \"story:first-publish\",\n  \"integrationName\": \"your-integration\",\n  \"enabled\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/events/subscriptions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"events",
+												"subscriptions"
+											]
+										},
+										"description": "Manage an existing event subscription"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"The event Test name does not exist.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "View subscriptions",
+							"id": "6f3bcf22-6a1d-4489-bbf1-7c93d177aba8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/admin/events/subscriptions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"events",
+										"subscriptions"
+									]
+								},
+								"description": "View your organization’s existing subscriptions. These results may be cached for 5 minutes"
+							},
+							"response": [
+								{
+									"id": "13a4c270-7386-402c-af88-9297d65b93d8",
+									"name": "Successfully retrieved a list of subscriptions.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/admin/events/subscriptions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"events",
+												"subscriptions"
+											]
+										},
+										"description": "View your organization’s existing subscriptions. These results may be cached for 5 minutes"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"subscriptions\": {}\n}"
+								}
+							]
+						}
+					],
+					"id": "4c72ec33-2130-44f8-b32f-10307f52d366"
+				},
+				{
+					"name": "logs",
+					"item": [
+						{
+							"name": "Initialize a log search query",
+							"id": "ca5e39f2-2fce-4b9e-a220-846925f22fd1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/admin/logs/integration/:integrationName?start=1682524189&limit=100",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"logs",
+										"integration",
+										":integrationName"
+									],
+									"query": [
+										{
+											"key": "start",
+											"value": "1682524189",
+											"description": "The timestamp of the start time in second (Epoch time)"
+										},
+										{
+											"key": "end",
+											"value": "current timestamp",
+											"description": "The timestamp of the end time in second (Epoch time)",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "100",
+											"description": "The max number of the log events to retrieve. A number between 1-100."
+										},
+										{
+											"key": "sort",
+											"value": "desc",
+											"description": "Sort order",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "tempor ad laborum non",
+											"description": "The text to search",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "integrationName",
+											"value": "your-integration",
+											"description": "(Required) The name of the integration"
+										}
+									]
+								},
+								"description": "Initialize a log search query for an integration to get query ID which will be used to view log results."
+							},
+							"response": [
+								{
+									"id": "48732541-792d-4007-9dd3-1b7cb7205772",
+									"name": "Log search is successfully initialized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/admin/logs/integration/:integrationName?start=1682524189&limit=100",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"logs",
+												"integration",
+												":integrationName"
+											],
+											"query": [
+												{
+													"key": "start",
+													"value": "1682524189",
+													"description": "The timestamp of the start time in second (Epoch time)"
+												},
+												{
+													"key": "end",
+													"value": "current timestamp",
+													"description": "The timestamp of the end time in second (Epoch time)",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "100",
+													"description": "The max number of the log events to retrieve. A number between 1-100."
+												},
+												{
+													"key": "sort",
+													"value": "desc",
+													"description": "Sort order",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "tempor ad laborum non",
+													"description": "The text to search",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "integrationName",
+													"value": "your-integration",
+													"description": "(Required) The name of the integration"
+												}
+											]
+										},
+										"description": "Initialize a log search query for an integration to get query ID which will be used to view log results."
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"queryId\": \"ad do\"\n}"
+								},
+								{
+									"id": "6dd63245-b985-4ae3-bbe7-6c01de5ae577",
+									"name": "Invalid input",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/admin/logs/integration/:integrationName?start=1682524189&end=current timestamp&limit=100&sort=desc&q=tempor ad laborum non",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"logs",
+												"integration",
+												":integrationName"
+											],
+											"query": [
+												{
+													"key": "start",
+													"value": "1682524189",
+													"description": "The timestamp of the start time in second (Epoch time)"
+												},
+												{
+													"key": "end",
+													"value": "current timestamp",
+													"description": "The timestamp of the end time in second (Epoch time)",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "100",
+													"description": "The max number of the log events to retrieve. A number between 1-100."
+												},
+												{
+													"key": "sort",
+													"value": "desc",
+													"description": "Sort order",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "tempor ad laborum non",
+													"description": "The text to search",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "integrationName",
+													"value": "your-integration",
+													"description": "(Required) The name of the integration"
+												}
+											]
+										},
+										"description": "Initialize a log search query for an integration to get query ID which will be used to view log results."
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorCode\": \"abc\",\n  \"errorMessage\": \"An error\"\n}"
+								},
+								{
+									"id": "1f7605ab-5e3a-48af-a393-bfcd186304d2",
+									"name": "Limit exceeded. Try again later.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/admin/logs/integration/:integrationName?start=1682524189&end=current timestamp&limit=100&sort=desc&q=tempor ad laborum non",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"logs",
+												"integration",
+												":integrationName"
+											],
+											"query": [
+												{
+													"key": "start",
+													"value": "1682524189",
+													"description": "The timestamp of the start time in second (Epoch time)"
+												},
+												{
+													"key": "end",
+													"value": "current timestamp",
+													"description": "The timestamp of the end time in second (Epoch time)",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "100",
+													"description": "The max number of the log events to retrieve. A number between 1-100."
+												},
+												{
+													"key": "sort",
+													"value": "desc",
+													"description": "Sort order",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "tempor ad laborum non",
+													"description": "The text to search",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "integrationName",
+													"value": "your-integration",
+													"description": "(Required) The name of the integration"
+												}
+											]
+										},
+										"description": "Initialize a log search query for an integration to get query ID which will be used to view log results."
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorCode\": \"abc\",\n  \"errorMessage\": \"An error\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get log search results",
+							"id": "e340139b-1930-4c88-9fe7-f64eda9796d5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/admin/logs/results?queryId=7928c3ab-a0d6-4a2d-ba4c-8fd63bc5a93f",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"logs",
+										"results"
+									],
+									"query": [
+										{
+											"key": "queryId",
+											"value": "7928c3ab-a0d6-4a2d-ba4c-8fd63bc5a93f",
+											"description": "(Required) The query ID"
+										}
+									]
+								},
+								"description": "Use the query ID from the /admin/logs/integration/{integrationName} endpoint to view the log results."
+							},
+							"response": [
+								{
+									"id": "8fa257e8-37c8-47a5-b447-529ed34bd24d",
+									"name": "Log search result which contains the the query status, the statistics of the query (number of scanned records, bytes of scanned records, number of matched records) and the log events (time string in UTC, log stream ID of the soruce, log message)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/admin/logs/results?queryId=7928c3ab-a0d6-4a2d-ba4c-8fd63bc5a93f",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"logs",
+												"results"
+											],
+											"query": [
+												{
+													"key": "queryId",
+													"value": "7928c3ab-a0d6-4a2d-ba4c-8fd63bc5a93f",
+													"description": "(Required) The query ID"
+												}
+											]
+										},
+										"description": "Use the query ID from the /admin/logs/integration/{integrationName} endpoint to view the log results."
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": "dolor anim"
+								},
+								{
+									"id": "282304b9-7888-4178-8946-abfadbd4d884",
+									"name": "Invalid input",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/admin/logs/results?queryId=7928c3ab-a0d6-4a2d-ba4c-8fd63bc5a93f",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"logs",
+												"results"
+											],
+											"query": [
+												{
+													"key": "queryId",
+													"value": "7928c3ab-a0d6-4a2d-ba4c-8fd63bc5a93f",
+													"description": "(Required) The query ID"
+												}
+											]
+										},
+										"description": "Use the query ID from the /admin/logs/integration/{integrationName} endpoint to view the log results."
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "94b3d166-cf40-4721-8ea7-32728697cb2f",
+									"name": "Unexpected error in the services",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/admin/logs/results?queryId=7928c3ab-a0d6-4a2d-ba4c-8fd63bc5a93f",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"logs",
+												"results"
+											],
+											"query": [
+												{
+													"key": "queryId",
+													"value": "7928c3ab-a0d6-4a2d-ba4c-8fd63bc5a93f",
+													"description": "(Required) The query ID"
+												}
+											]
+										},
+										"description": "Use the query ID from the /admin/logs/integration/{integrationName} endpoint to view the log results."
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "8c0a4426-ec72-455a-8a6d-d3e8b5b6cd1c"
+				},
+				{
+					"name": "secret",
+					"item": [
+						{
+							"name": "Add a new secret",
+							"id": "3dfb34eb-4294-4ca4-9c25-3a5ad5e7daed",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"secretName\": \"testName\",\n  \"secretValue\": \"Asecret*\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/secret?integrationName=your-integration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"secret"
+									],
+									"query": [
+										{
+											"key": "integrationName",
+											"value": "your-integration",
+											"description": "(Required) The name of the integration where the secret will be used"
+										}
+									]
+								},
+								"description": "Returns success if secret is created"
+							},
+							"response": [
+								{
+									"id": "646c16a5-8d9a-4ee7-af71-2da6d2a501d9",
+									"name": "Secret Successfully created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"secretName\": \"testName\",\n  \"secretValue\": \"Asecret*\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/secret?integrationName=your-integration",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"secret"
+											],
+											"query": [
+												{
+													"key": "integrationName",
+													"value": "your-integration",
+													"description": "(Required) The name of the integration where the secret will be used"
+												}
+											]
+										},
+										"description": "Returns success if secret is created"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "8c3e81a2-d689-406e-a883-7f726c20ad39",
+									"name": "Invalid Input. Secret was not successfully created (error message will be provided).",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"secretName\": \"testName\",\n  \"secretValue\": \"Asecret*\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/secret?integrationName=your-integration",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"secret"
+											],
+											"query": [
+												{
+													"key": "integrationName",
+													"value": "your-integration",
+													"description": "(Required) The name of the integration where the secret will be used"
+												}
+											]
+										},
+										"description": "Returns success if secret is created"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorCode\": \"abc\",\n  \"errorMessage\": \"An error\"\n}"
+								},
+								{
+									"id": "9c686234-67a4-4d20-9b90-2b5ee0944e4c",
+									"name": "Something failed internally to create the secret, might need to retry.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"secretName\": \"testName\",\n  \"secretValue\": \"Asecret*\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/secret?integrationName=your-integration",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"secret"
+											],
+											"query": [
+												{
+													"key": "integrationName",
+													"value": "your-integration",
+													"description": "(Required) The name of the integration where the secret will be used"
+												}
+											]
+										},
+										"description": "Returns success if secret is created"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorCode\": \"abc\",\n  \"errorMessage\": \"An error\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update an existing secret",
+							"id": "cb5eeda8-3dec-469b-81d9-9cbc182f1b4c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"secretName\": \"testName\",\n  \"secretValue\": \"Asecret*\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/secret?integrationName=your-integration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"secret"
+									],
+									"query": [
+										{
+											"key": "integrationName",
+											"value": "your-integration",
+											"description": "(Required) The name of the integration"
+										}
+									]
+								},
+								"description": "Returns success if secret is updated"
+							},
+							"response": [
+								{
+									"id": "a9ae477f-bd89-4db5-bb60-34b3875361f8",
+									"name": "Secret Successfully updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"secretName\": \"testName\",\n  \"secretValue\": \"Asecret*\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/secret?integrationName=your-integration",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"secret"
+											],
+											"query": [
+												{
+													"key": "integrationName",
+													"value": "your-integration",
+													"description": "(Required) The name of the integration"
+												}
+											]
+										},
+										"description": "Returns success if secret is updated"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "2891d8b7-bf87-48da-8cd0-70187ce10f94",
+									"name": "Invalid Input. Secret was not successfully updated (error message will be provided).",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"secretName\": \"testName\",\n  \"secretValue\": \"Asecret*\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/secret?integrationName=your-integration",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"secret"
+											],
+											"query": [
+												{
+													"key": "integrationName",
+													"value": "your-integration",
+													"description": "(Required) The name of the integration"
+												}
+											]
+										},
+										"description": "Returns success if secret is updated"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorCode\": \"abc\",\n  \"errorMessage\": \"An error\"\n}"
+								},
+								{
+									"id": "d23da7e9-9817-489b-9bf8-5b2c0382b4c1",
+									"name": "Something failed internally to update the secret, might need to retry.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"secretName\": \"testName\",\n  \"secretValue\": \"Asecret*\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/secret?integrationName=your-integration",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"secret"
+											],
+											"query": [
+												{
+													"key": "integrationName",
+													"value": "your-integration",
+													"description": "(Required) The name of the integration"
+												}
+											]
+										},
+										"description": "Returns success if secret is updated"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorCode\": \"abc\",\n  \"errorMessage\": \"An error\"\n}"
+								}
+							]
+						},
+						{
+							"name": "List secret names for an integration",
+							"id": "2e5e4504-59ce-429e-a02c-62b62ab35300",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/admin/secret?integrationName=your-integration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"secret"
+									],
+									"query": [
+										{
+											"key": "integrationName",
+											"value": "your-integration",
+											"description": "(Required) The integration’s name whose secrets should be listed"
+										}
+									]
+								},
+								"description": "Returns all secret names for an integration. Secret values will not be displayed."
+							},
+							"response": [
+								{
+									"id": "8ec0736e-f8e6-47ea-bcad-3a5b4b18dacb",
+									"name": "Secret Name List Successfully Retrieved",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/admin/secret?integrationName=your-integration",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"secret"
+											],
+											"query": [
+												{
+													"key": "integrationName",
+													"value": "your-integration",
+													"description": "(Required) The integration’s name whose secrets should be listed"
+												}
+											]
+										},
+										"description": "Returns all secret names for an integration. Secret values will not be displayed."
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  \"eu consectetur\",\n  \"do\"\n]"
+								},
+								{
+									"id": "0a774ec3-956c-46a7-bd07-e7c51c29255d",
+									"name": "Invalid Input. Secrets not successfully retrieved",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/admin/secret?integrationName=your-integration",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"secret"
+											],
+											"query": [
+												{
+													"key": "integrationName",
+													"value": "your-integration",
+													"description": "(Required) The integration’s name whose secrets should be listed"
+												}
+											]
+										},
+										"description": "Returns all secret names for an integration. Secret values will not be displayed."
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorCode\": \"abc\",\n  \"errorMessage\": \"An error\"\n}"
+								},
+								{
+									"id": "0ac124f0-bc6d-4c06-bca7-b20d03ab7e43",
+									"name": "Something failed when retrieving the list of secrets, might need to retry.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/admin/secret?integrationName=your-integration",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"secret"
+											],
+											"query": [
+												{
+													"key": "integrationName",
+													"value": "your-integration",
+													"description": "(Required) The integration’s name whose secrets should be listed"
+												}
+											]
+										},
+										"description": "Returns all secret names for an integration. Secret values will not be displayed."
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorCode\": \"abc\",\n  \"errorMessage\": \"An error\"\n}"
+								}
+							]
+						}
+					],
+					"id": "76dd6ab7-4a08-478e-ad45-19a07f6d57aa"
+				},
+				{
+					"name": "List all job status for an integration",
+					"id": "0cab6705-5756-4130-98fc-234a8dce7275",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/admin/jobs/status/:integrationName",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"jobs",
+								"status",
+								":integrationName"
+							],
+							"variable": [
+								{
+									"key": "integrationName",
+									"value": "your-integration"
+								}
+							]
+						},
+						"description": "Return a list of CodeBuild jobs' information for an integration."
+					},
+					"response": [
+						{
+							"id": "38e9dfe8-ab87-4b0a-8887-5d5efee6da6e",
+							"name": "<p>Successfully retrieved a list of the latest build information for each job. Empty object will be returned if there is no latest build record found.</p>",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/admin/jobs/status/:integrationName",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"jobs",
+										"status",
+										":integrationName"
+									],
+									"variable": [
+										{
+											"key": "integrationName",
+											"value": "your-integration"
+										}
+									]
+								},
+								"description": "Return a list of CodeBuild jobs' information for an integration."
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"arc_ifx_client_testOrg_testIntegration_build\": {\n      \"buildComplete\": true,\n      \"buildStatus\": \"SUCCEEDED\",\n      \"startTime\": \"2022-12-20T19:37:05.707Z\",\n      \"endTime\": \"2022-12-20T19:42:04.990Z\",\n      \"currentPhase\": \"COMPLETED\"\n    }\n  },\n  {\n    \"arc_ifx_client_testOrg_testIntegration_deploy_sandbox\": {\n      \"buildComplete\": true,\n      \"buildStatus\": \"SUCCEEDED\",\n      \"startTime\": \"2022-12-20T19:37:05.707Z\",\n      \"endTime\": \"2022-12-20T19:42:04.990Z\",\n      \"currentPhase\": \"COMPLETED\"\n    }\n  },\n  {\n    \"arc_ifx_client_testOrg_testIntegration_live_sandbox\": {\n      \"buildComplete\": false,\n      \"buildStatus\": \"IN_PROGRESS\",\n      \"startTime\": \"2022-12-20T19:37:05.707Z\",\n      \"endTime\": \"2022-12-20T19:42:04.990Z\",\n      \"currentPhase\": \"PROVISIONING\"\n    }\n  },\n  {\n    \"arc_ifx_client_testOrg_testIntegration_deploy_prod\": {\n      \"buildComplete\": true,\n      \"buildStatus\": \"SUCCEEDED\",\n      \"startTime\": \"2022-12-20T19:37:05.707Z\",\n      \"endTime\": \"2022-12-20T19:42:04.990Z\",\n      \"currentPhase\": \"COMPLETED\"\n    }\n  },\n  {\n    \"arc_ifx_client_testOrg_testIntegration_live_prod\": {\n      \"buildComplete\": true,\n      \"buildStatus\": \"SUCCEEDED\",\n      \"startTime\": \"2022-12-20T19:37:05.707Z\",\n      \"endTime\": \"2022-12-20T19:42:04.990Z\",\n      \"currentPhase\": \"COMPLETED\"\n    }\n  }\n]"
+						},
+						{
+							"id": "2b1aa350-380e-448e-b481-00974e1796dc",
+							"name": "Invalid input. The integration testIntegration does not exist.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/admin/jobs/status/:integrationName",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"jobs",
+										"status",
+										":integrationName"
+									],
+									"variable": [
+										{
+											"key": "integrationName",
+											"value": "your-integration"
+										}
+									]
+								},
+								"description": "Return a list of CodeBuild jobs' information for an integration."
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorCode\": \"abc\",\n  \"errorMessage\": \"An error\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Invoke Integration",
+					"id": "5f999a74-ff3b-4076-83d5-c9f9d7ed7ad4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"key1\": \"data1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/admin/invoke/story:update",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"invoke",
+								"story:update"
+							]
+						},
+						"description": "Returns success if integration is created"
+					},
+					"response": [
+						{
+							"id": "98125e81-89db-4e53-b2d0-6b93efb93306",
+							"name": "Integration Successfully created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"key1\": \"data1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/invoke/story:update",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"invoke",
+										"story:update"
+									]
+								},
+								"description": "Returns success if integration is created"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "60cd11e0-a982-4805-a76f-0337798b5800",
+							"name": "Invalid Input. Integration was not successfully created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"key1\": \"data1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/invoke/story:update",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"invoke",
+										"story:update"
+									]
+								},
+								"description": "Returns success if integration is created"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorCode\": \"abc\",\n  \"errorMessage\": \"An error\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a new integration",
+					"id": "27de2e7d-d245-42d2-80b3-1b7711d857f6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"integrationName\": \"your-integration\",\n  \"githubUsernames\": [\n    \"your-username-here---------------------------------\"\n  ],\n  \"description\": \"Your Test Integration\",\n  \"email\": \"your-email@washpost.com\",\n  \"provisionPAT\": true,\n  \"runtime\": \"node\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/admin/integration",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"integration"
+							]
+						},
+						"description": "Returns success if integration is created"
+					},
+					"response": [
+						{
+							"id": "0f66f833-09c6-4c6f-8ca4-23f5c843f917",
+							"name": "Integration Successfully created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"integrationName\": \"your-integration\",\n  \"githubUsernames\": [\n    \"your-username-here---------------------------------\"\n  ],\n  \"description\": \"Your Test Integration\",\n  \"email\": \"your-email@washpost.com\",\n  \"provisionPAT\": true,\n  \"runtime\": \"node\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/integration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"integration"
+									]
+								},
+								"description": "Returns success if integration is created"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "6e405817-3cd1-4432-a00a-b41bbc6e8689",
+							"name": "Invalid Input. Integration was not successfully created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"integrationName\": \"your-integration\",\n  \"githubUsernames\": [\n    \"your-username-here---------------------------------\"\n  ],\n  \"description\": \"Your Test Integration\",\n  \"email\": \"your-email@washpost.com\",\n  \"provisionPAT\": true,\n  \"runtime\": \"node\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/integration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"integration"
+									]
+								},
+								"description": "Returns success if integration is created"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorCode\": \"abc\",\n  \"errorMessage\": \"An error\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Check integration provision status",
+					"id": "1f7f7a6a-1f47-445b-8261-438b89124e33",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/admin/integration/:integrationName/provisionStatus",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"integration",
+								":integrationName",
+								"provisionStatus"
+							],
+							"variable": [
+								{
+									"key": "integrationName",
+									"value": "your-integration"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Integrations",
+					"id": "4dc300df-713d-407e-8728-a636ab1e53b7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/admin/integrations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"integrations"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "00d395d1-e856-4856-a961-d40cea1d7d41"
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{BEARER}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "ee3ff40a-cc8c-418b-b054-aa3623855ee4"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "5a2ea2fb-fc95-4126-9ed2-5cc0d1dc5c38"
+			}
+		}
+	]
+}
